@@ -14,6 +14,10 @@ SimpleInjector_OBJ_FILES = task_vaccine/build/x86_64/task_vaccine.a
 
 include $(THEOS_MAKE_PATH)/tool.mk
 
-task_vaccine/build/x86_64/task_vaccine.a:
-	$(ECHO_NOTHING)cd task_vaccine$(ECHO_END); rake static_64
+MAKEFILE_DIR := $(CURDIR)/$(dirname $(lastword $(MAKEFILE_LIST)))
 
+task_vaccine/build/x86_64/task_vaccine.a:
+	cd $(MAKEFILE_DIR)/task_vaccine; rake static_64
+
+clean::
+	cd $(MAKEFILE_DIR)/task_vaccine; rake clear
