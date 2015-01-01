@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
 			return 1;
 		}
 
-		NSString *bid = [NSString stringWithUTF8String:argv[1]];
+		NSString *bid = @(argv[1]);
 		char *lib = argv[2];
 
 		NSMutableArray *appsInjected = [NSMutableArray new];
